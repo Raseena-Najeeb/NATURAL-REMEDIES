@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #5a3e2b;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            position: relative; /* Required for pseudo-element positioning */
+        }
+
+        /* Add background image with opacity */
+        body::before {
+            content: ""; /* Required for pseudo-elements */
+            position: absolute; /* Position it absolutely */
+            top: 0; /* Cover the entire body */
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('herbals.jpg') no-repeat center center fixed; /* Your background image */
+            background-size: cover; /* Cover the entire area */
+            opacity: 0.5; /* Set opacity to 50% */
+            z-index: -1; /* Place it behind other content */
+        }
+
+        .sidebar {
+            width: 200px;
+            background: #8b5e3b;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+        }
+
+        .sidebar a {
+            margin: 20px 0;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .logo {
+            width: 100px; /* Adjust size as needed */
+            height: auto;
+            margin-bottom: 20px; /* Space below the logo */
+        }
+
+        .container {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 100vh;
+            position: relative;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            background-color: rgba(244, 225, 198, 0.8);
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .feedback-section {
+            background-color: rgba(244, 225, 198, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .feedback-section h2 {
+            margin-top: 0;
+        }
+
+        .feedback-section label {
+            display: block;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+
+        .feedback-section input[type="radio"] {
+            margin-right: 10px;
+        }
+
+        .feedback-section button {
+            background-color: #8b5e3b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .feedback-section button:hover {
+            background-color: #6b4a2f;
+        }
+
+        .rating-section {
+            background-color: rgba(244, 225, 198, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .rating-section h2 {
+            margin-top: 0;
+        }
+
+        .star-rating {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        .star-rating span {
+            font-size: 30px;
+            cursor: pointer;
+            color: #ccc; /* Default star color (unselected) */
+            transition: color 0.2s; /* Smooth color transition */
+        }
+
+        .star-rating span:hover,
+        .star-rating span.selected {
+            color: #ffcc00; /* Yellow color for selected/hovered stars */
+        }
+
+        .feedback-textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border: 2px solid #8b5e3b;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-bottom: 10px;
+            resize: vertical; /* Allow vertical resizing */
+        }
+
+        .rating-section button {
+            background-color: #8b5e3b;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .rating-section button:hover {
+            background-color: #6b4a2f;
+        }
+
+        .thank-you-message {
+            text-align: center;
+            font-size: 20px;
+            color: #5a3e2b;
+            margin-top: 20px;
+            display: none; /* Hidden by default */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <!-- Add Logo -->
+        <img src="logos.png" alt="Logo" class="logo">
+        <a href="home.html" id="home-link" aria-label="Home">🏠</a>
+        <a href="remedies.html" id="remedy-link" aria-label="Natural Remedies">🌿</a>
+        <a href="learn.html" id="learn-link" aria-label="Learn More">📖</a>
+        <a href="about.html" id="about-link" aria-label="About Us">ℹ️</a>
+        <a href="feedback.html" id="feedback-link" aria-label="Feedback">✍️</a>
+    </div>
+    
+    <div class="container">
+        <h1 class="heading">Feedback</h1>
+        
+        <!-- Feedback Section -->
+        <div class="feedback-section">
+            <h2>Did you use the remedies to cure your illness?</h2>
+            <form id="remedyForm">
+                <label>
+                    <input type="radio" name="remedy-used" value="yes"> Yes
+                </label>
+                <label>
+                    <input type="radio" name="remedy-used" value="no"> No
+                </label>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Rating Section -->
+        <div class="rating-section">
+            <h2>Rate our website</h2>
+            <form id="ratingForm">
+                <div class="star-rating">
+                    <span data-value="1">&#9733;</span>
+                    <span data-value="2">&#9733;</span>
+                    <span data-value="3">&#9733;</span>
+                    <span data-value="4">&#9733;</span>
+                    <span data-value="5">&#9733;</span>
+                </div>
+                <textarea class="feedback-textarea" placeholder="Write your feedback here..."></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+        <!-- Thank You Message -->
+        <div class="thank-you-message" id="thankYouMessage">
+            Thank you for your feedback!
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for Star Rating
+        const stars = document.querySelectorAll('.star-rating span');
+        let selectedRating = 0;
+
+        stars.forEach(star => {
+            star.addEventListener('click', function () {
+                selectedRating = this.getAttribute('data-value');
+                stars.forEach(s => s.classList.remove('selected')); // Remove previous selection
+                this.classList.add('selected'); // Highlight selected star
+                for (let i = 0; i < selectedRating; i++) {
+                    stars[i].classList.add('selected'); // Highlight all stars up to the selected one
+                }
+            });
+
+            star.addEventListener('mouseover', function () {
+                const hoverValue = this.getAttribute('data-value');
+                stars.forEach(s => s.classList.remove('selected')); // Remove previous selection
+                for (let i = 0; i < hoverValue; i++) {
+                    stars[i].classList.add('selected'); // Highlight stars on hover
+                }
+            });
+
+            star.addEventListener('mouseout', function () {
+                stars.forEach(s => s.classList.remove('selected')); // Remove hover effect
+                for (let i = 0; i < selectedRating; i++) {
+                    stars[i].classList.add('selected'); // Restore selected stars
+                }
+            });
+        });
+
+        // JavaScript for Form Submission
+        const remedyForm = document.getElementById('remedyForm');
+        const ratingForm = document.getElementById('ratingForm');
+        const thankYouMessage = document.getElementById('thankYouMessage');
+
+        remedyForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+            showThankYouMessage();
+            clearForm(remedyForm);
+        });
+
+        ratingForm.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form submission
+            showThankYouMessage();
+            clearForm(ratingForm);
+            clearStarRating();
+        });
+
+        function showThankYouMessage() {
+            thankYouMessage.style.display = 'block'; // Show the thank you message
+            setTimeout(() => {
+                thankYouMessage.style.display = 'none'; // Hide the message after 3 seconds
+            }, 3000);
+        }
+
+        function clearForm(form) {
+            form.reset(); // Clear all inputs in the form
+        }
+
+        function clearStarRating() {
+            selectedRating = 0; // Reset selected rating
+            stars.forEach(star => star.classList.remove('selected')); // Clear star selection
+        }
+    </script>
+</body>
+</html>

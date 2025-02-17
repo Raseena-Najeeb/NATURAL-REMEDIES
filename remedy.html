@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remedies</title>
+    <style>
+        body {
+            position: relative;
+            font-family: Arial, sans-serif;
+            color: #5a3e2b;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('herbals.jpg') no-repeat center center fixed;
+            background-size: cover;
+            opacity: 0.5;
+            z-index: -1;
+        }
+
+        .sidebar {
+            width: 200px; /* Fixed width */
+            background: #8b5e3b;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 20px;
+            flex-shrink: 0; /* Prevent sidebar from shrinking */
+        }
+
+        .sidebar a {
+            margin: 20px 0;
+            color: white;
+            text-decoration: none;
+            font-size: 24px;
+        }
+
+        .logo {
+            width: 100px; /* Adjust size as needed */
+            height: auto;
+            margin-bottom: 20px; /* Space below the logo */
+        }
+
+        .container {
+            flex-grow: 1;
+            padding: 20px;
+            overflow-y: auto;
+            max-height: 100vh;
+            position: relative;
+        }
+
+        .heading {
+            text-align: center;
+            margin-bottom: 20px;
+            position: relative;
+            background-color: rgba(244, 225, 198, 0.8);
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+        }
+
+        .filter-search {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+        #search-input {
+            width: 70%;
+            padding: 10px;
+            border: 2px solid #8b5e3b;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #search-input:focus {
+            border-color: #f4c3a1;
+        }
+
+        #type-select {
+            padding: 10px;
+            border: 2px solid #8b5e3b;
+            border-radius: 5px;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        #type-select:focus {
+            border-color: #f4c3a1;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .remedy-box {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 800px;
+            background-color: rgba(244, 225, 198, 0.8);
+            padding: 20px;
+            border-radius: 30px;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+
+        .box {
+            width: 100%;
+            padding: 20px;
+            border: 4px solid #8b5e3b;
+            background-color: #e3caa5;
+            text-align: center;
+            border-radius: 10px;
+        }
+
+        .remedy-img {
+            width: 50%;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        .source-link {
+            color: #5a3e2b;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .source-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <!-- Add Logo -->
+        <img src="logos.png" alt="Logo" class="logo">
+        <a href="/home.html" id="home-link" aria-label="Home">🏠</a>
+        <a href="/remedies.html" id="remedy-link" aria-label="Natural Remedies">🌿</a>
+        <a href="/learn.html" id="learn-link" aria-label="Learn More">📖</a>
+        <a href="/about.html" id="about-link" aria-label="About Us">ℹ️</a>
+        <a href="/feedback.html" id="feedback-link" aria-label="Feedback">✍️</a>
+    </div>
+    
+    <div class="container">
+        <div class="filter-search">
+            <select id="type-select">
+                <option value="">Select Type</option>
+                <option value="homemade">Homemade</option>
+                <option value="product">Product</option>
+            </select>
+            <input type="text" id="search-input" placeholder="Search Remedy">
+        </div>
+        <div class="line"></div>
+        <h1 class="heading">Remedies</h1>
+        <div class="content">
+            <!-- Remedy Boxes -->
+            <div class="remedy-box" data-type="homemade">
+                <div class="box">
+                    <img src="turmeric.jpg" alt="Turmeric Paste" class="remedy-img">
+                    <p><strong>Name:</strong> Turmeric Paste</p>
+                    <p><strong>Traditional Use:</strong> Heals wounds, reduces inflammation.</p>
+                    <p><strong>Modern Studies:</strong> Curcumin (active compound) has anti-inflammatory and wound-healing properties. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5664031/" class="source-link" target="_blank">Source: Wound-Healing Effects of Curcumin and Its Nanoformulations</a></p>
+                    <p><strong>Preparation Tutorial:</strong> <a href="https://www.youtube.com/watch?v=LtzPfl9o7KI&ab_channel=FoolproofLiving" target="_blank"><button>▶</button></a></p>
+                </div>
+            </div>
+
+            <div class="remedy-box" data-type="homemade">
+                <div class="box">
+                    <img src="ginger tea.jpg" alt="Ginger Honey Tea" class="remedy-img">
+                    <p><strong>Name:</strong> Ginger Honey Tea</p>
+                    <p><strong>Traditional Use:</strong> Used for coughs, digestion, and nausea.</p>
+                    <p><strong>Modern Studies:</strong> Ginger has been shown to help with nausea and motion sickness. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4818021/" class="source-link" target="_blank">Source: Efficacy of ginger for nausea and vomiting: a systematic review of randomized clinical trials</a></p>
+                    <p><strong>Preparation Tutorial:</strong> <a href="https://www.youtube.com/watch?v=eXVcgRE5JL0&ab_channel=JustOneCookbook" target="_blank"><button>▶</button></a></p>
+                </div>
+            </div>
+
+            <div class="remedy-box" data-type="homemade">
+                <div class="box">
+                    <img src="oatmeal.JPG" alt="Oatmeal Honey Face Mask" class="remedy-img">
+                    <p><strong>Name:</strong> Oatmeal Honey Face Mask</p>
+                    <p><strong>Traditional Use:</strong> Used for soothing skin irritation and acne.</p>
+                    <p><strong>Modern Studies:</strong> Oatmeal has anti-inflammatory properties that help with skin irritation, and honey has antibacterial effects. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5664031/" class="source-link" target="_blank">Source: Dermatology Research and Practice, 2015</a></p>
+                    <p><strong>Preparation Tutorial:</strong> <a href="https://www.youtube.com/shorts/DiTK2uiQAwM" target="_blank"><button>▶</button></a></p>
+                </div>
+            </div>
+
+            <div class="remedy-box" data-type="homemade">
+                <div class="box">
+                    <img src="Aloe-vera.jpg" alt="Aloe Vera Skin Gel" class="remedy-img">
+                    <p><strong>Name:</strong> Aloe Vera Skin Gel</p>
+                    <p><strong>Traditional Use:</strong> Treats burns, cuts, and acne.</p>
+                    <p><strong>Modern Studies:</strong> Shown to speed up wound healing and reduce acne. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2763764/" class="source-link" target="_blank">Source: Aloe Vera: A Short Review</a></p>
+                    <p><strong>Preparation Tutorial:</strong> <a href="https://www.youtube.com/watch?v=BD6hfBnBj1c&ab_channel=DaisyCreekFarmswithJagSingh" target="_blank"><button>▶</button></a></p>
+                </div>
+            </div>
+
+            <div class="remedy-box" data-type="homemade">
+                <div class="box">
+                    <img src="tulsi.jpg" alt="Holy Basil" class="remedy-img">
+                    <p><strong>Name:</strong> Holy Basil (Tulsi) Chewing</p>
+                    <p><strong>Traditional Use:</strong> Used for stress relief and infection prevention.</p>
+                    <p><strong>Modern Studies:</strong> Tulsi has adaptogenic properties, meaning it reduces stress and anxiety. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5376420/" class="source-link" target="_blank">Source: Tulsi - Ocimum sanctum: A herb for all reasons</a></p>
+                    <p><strong>Direction of use:</strong> Take 2-3 fresh leaves of tulsi, wash them thoroughly, and chew them daily, preferably in the morning.</p>
+                </div>
+            </div>
+
+            <div class="remedy-box" data-type="homemade">
+                <div class="box">
+                    <img src="fenugreek water.jpg" alt="Fenugreek Water" class="remedy-img">
+                    <p><strong>Name:</strong> Fenugreek Water</p>
+                    <p><strong>Traditional Use:</strong> Aids digestion and boosts lactation in mothers.</p>
+                    <p><strong>Modern Studies:</strong> Fenugreek helps lower blood sugar and improve digestion. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4894452/" class="source-link" target="_blank">Source: Effect of Fenugreek Seeds on Blood Glucose and Serum Lipids in Type I Diabetes</a></p>
+                    <p><strong>Preparation Tutorial:</strong> <a href="https://www.youtube.com/shorts/0g9znxHbR5o" target="_blank"><button>▶</button></a></p>
+                </div>
+            </div>
+
+            <div class="remedy-box" data-type="homemade">
+                <div class="box">
+                    <img src="honeygarlic.jpg" alt="Garlic-Honey Remedy" class="remedy-img">
+                    <p><strong>Name:</strong> Garlic-Honey Remedy</p>
+                    <p><strong>Traditional Use:</strong> Boosts immunity and lowers blood pressure.</p>
+                    <p><strong>Modern Studies:</strong> Garlic reduces high blood pressure and improves heart health. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4103721/" class="source-link" target="_blank">Source: Garlic: a review of potential therapeutic effects</a></p>
+                    <p><strong>Preparation Tutorial:</strong> <a href="https://www.youtube.com/watch?v=3yznUEy1vbw" target="_blank"><button>▶</button></a></p>
+                </div>
+            </div>
+
+            <div class="remedy-box" data-type="product">
+                <div class="box">
+                    <img src="licorice.jpg" alt="Licorice Root Lozenges" class="remedy-img">
+                    <p><strong>Name:</strong> Licorice Root Lozenges</p>
+                    <p><strong>Traditional Use:</strong> Soothes sore throat and cough.</p>
+                    <p><strong>Modern Studies:</strong> Licorice has anti-inflammatory effects and helps with throat infections. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC7012004/" class="source-link" target="_blank">Source: Anti-inflammatory and Antiviral Effects of Glycyrrhizinic Acid</a></p>
+                    <p><strong>Direction of Use:</strong> Chew or dissolve one lozenge slowly in your mouth whenever you feel a sore throat or cough coming on. Take them 1 or 2 times a day.</p>
+                    <p><strong>Link to buy:</strong> <a href="https://dleasweets.com/product/original-black-licorice/" target="_blank"><button>https://dleasweets.com/product/original-black-licorice/</button></a></p>
+                </div>
+            </div>
+
+            <div class="remedy-box" data-type="homemade">
+                <div class="box">
+                    <img src="lemondrink.jpeg" alt="Lemon Drink" class="remedy-img">
+                    <p><strong>Name:</strong> Lemon Drink</p>
+                    <p><strong>Traditional Use:</strong> Used to cleanse the body and refresh.</p>
+                    <p><strong>Modern Studies:</strong> Lemon juice is rich in vitamin C, which helps with digestion, detox, and skin health. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3783921/" class="source-link" target="_blank">Source: Vitamin C in Disease Prevention and Cure: An Overview</a></p>
+                    <p><strong>Preparation Tutorial:</strong> <a href="https://www.youtube.com/watch?v=ZrDA3Sk8U2Y&ab_channel=iFoodReal" target="_blank"><button>▶</button></a></p>
+                </div>
+            </div>
+
+            <div class="remedy-box" data-type="homemade">
+                <div class="box">
+                    <img src="coconut.png" alt="DIY Coconut Oil Hair Mask" class="remedy-img">
+                    <p><strong>Name:</strong> DIY Coconut Oil Hair Mask 🥥</p>
+                    <p><strong>Traditional Use:</strong> Used for softening hair, promoting growth, and preventing dandruff.</p>
+                    <p><strong>Modern Studies:</strong> Coconut oil nourishes hair, reduces protein loss, and promotes growth. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4387693/" class="source-link" target="_blank">Source: Effect of mineral oil, sunflower oil, and coconut oil on prevention of hair damage</a></p>
+                    <p><strong>For recipe:</strong> <a href="https://www.littlehouseliving.com/homemade-coconut-oil-hair-mask.html" target="_blank"><button>recipe</button></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Search functionality
+        document.getElementById('search-input').addEventListener('input', function() {
+            const searchTerm = this.value.toLowerCase();
+            const remedyBoxes = document.querySelectorAll('.remedy-box');
+
+            remedyBoxes.forEach(box => {
+                const boxText = box.innerText.toLowerCase();
+                if (boxText.includes(searchTerm)) {
+                    box.style.display = ''; // Show the box
+                } else {
+                    box.style.display = 'none'; // Hide the box
+                }
+            });
+        });
+
+        // Filter by type (Homemade or Product)
+        document.getElementById('type-select').addEventListener('change', function() {
+            const selectedType = this.value;
+            const remedyBoxes = document.querySelectorAll('.remedy-box');
+
+            remedyBoxes.forEach(box => {
+                if (selectedType === "" || box.getAttribute('data-type') === selectedType) {
+                    box.style.display = ''; // Show the box
+                } else {
+                    box.style.display = 'none'; // Hide the box
+                }
+            });
+        });
+    </script>
+</body>
+</html>
